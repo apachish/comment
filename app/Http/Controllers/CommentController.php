@@ -24,9 +24,9 @@ class CommentController extends Controller
     public function update(Request $request, $id)
     {
         $comment = Comment::find($id);
-//        $request->validate([
-//            'comment' => 'required|string|max:1000'
-//        ]);
+        $request->validate([
+            'comment' => 'required|string|max:1000'
+        ]);
         $this->authorize('update',$comment);
 
          $comment->update($request->only(['comment']));

@@ -17,8 +17,7 @@ class CheckPlatform
     public function handle($request, Closure $next)
     {
         $agent = new Agent();
-        dd($agent->device());
-        if (!$agent->isDesktop()) {
+        if ($agent->browser()) {
             $status = 400;
 
             $response = [
